@@ -1,0 +1,201 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Переменные для тем */
+.app.light {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --navbar-color: #f8f8f8;
+    --post-background: #ffffff;
+    --border-color: #ccc;
+}
+
+.app.dark {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --navbar-color: #444444;
+    --post-background: #555555;
+    --border-color: #666666;
+}
+
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--navbar-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.navbar button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопка "Back to Cards" */
+.back-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    background-color: #005fa3;
+}
+
+/* Слайдер темы */
+.theme-slider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Зона для создания нового поста */
+.new-post {
+    padding: 20px;
+    text-align: center;
+}
+
+.new-post textarea {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    resize: none;
+    background-color: var(--post-background);
+    color: var(--text-color);
+}
+
+.new-post button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-post button:hover {
+    background-color: #005fa3;
+}
+
+/* Лента новостей */
+.feed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.post {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: var(--post-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.post-content p {
+    margin: 0;
+}
