@@ -129,14 +129,21 @@ input:checked + .slider:before {
 
 /* Зона для создания нового поста */
 .new-post {
-    padding: 20px;
+    padding: 20px; /* Отступы внутри контейнера */
     text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--post-background);
+    width: 70%;
+    margin: 0 auto; /* Центрирование */
+    box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
 }
 
 .new-post textarea {
-    width: 80%;
+    width: calc(100% - 20px); /* Учитываем padding контейнера */
     height: 100px;
     padding: 10px;
+    margin-bottom: 10px;
     font-size: 16px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -146,7 +153,8 @@ input:checked + .slider:before {
 }
 
 .new-post button {
-    margin-top: 10px;
+    width: 80%;
+    width-max: 50px;/* Занимает всю ширину контейнера */
     padding: 10px 20px;
     font-size: 16px;
     background-color: #0077cc;
@@ -170,7 +178,7 @@ input:checked + .slider:before {
 }
 
 .post {
-    width: 80%;
+    width: 60%;
     margin-bottom: 20px;
     padding: 20px;
     background-color: var(--post-background);
