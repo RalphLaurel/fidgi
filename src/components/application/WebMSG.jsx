@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './WebMSG.css';
+import './WebMSG.css';
 
 const WebMessenger = () => {
     const navigate = useNavigate(); // Хук для навигации
@@ -40,13 +40,9 @@ const WebMessenger = () => {
 
     return (
         <div className={`app ${theme}`}>
-            {/* Кнопка "Back to Cards" в верхнем левом углу */}
-            <div className="back-button">
-                <button onClick={() => navigate('/')}>Back to Cards</button>
-            </div>
 
             {/* Навигационная панель */}
-            <nav className="navbar">
+            <nav className="navbarmsg">
                 <button
                     onMouseEnter={(e) => handleShowTooltip(e, 'Лента: Здесь отображаются все посты(Ой, функция в разработке)')}
                     onMouseLeave={handleHideTooltip}

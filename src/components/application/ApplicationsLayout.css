@@ -1,0 +1,84 @@
+.applications-container {
+    display: flex;
+    height: calc(100vh - 120px); /* Учитываем высоту header и footer */
+    background-image: url('../background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Список приложений */
+.apps-list {
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 20px;
+    margin: 20px;
+    display: grid;
+    grid-row-gap: 10px;
+    width: auto;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Контент приложения */
+.app-content {
+    background: rgba(255, 255, 255, 0.21);
+    margin: 20px;
+    flex: 1;
+    border-color: black;
+    border-radius: 20px; /* Скругление углов уже есть */
+    padding: 20px;
+    overflow-y: auto;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .applications-container {
+        flex-direction: column;
+    }
+
+    .apps-list {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        transform: translateX(-100%);
+        position: fixed;
+        top: 60px; /* Высота навбара */
+        left: 0;
+        margin-top: 10px;
+        z-index: 1000;
+        background: #000000;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .apps-list.open {
+        transform: translateX(0);
+    }
+
+    .app-content {
+        margin-top: 60px; /* Отступ для кнопки меню */
+        border-radius: 1px;
+        border-color: black;
+    }
+
+
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 100px;
+        z-index: 1001;
+        background: #007bff;
+        color: #fdf9f9;
+        border: none;
+        padding: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+/* Скрываем кнопку меню на десктопах */
+.menu-toggle {
+    display: none;
+}

@@ -1,0 +1,36 @@
+.footer {
+    padding: 20px 0;
+    background-color: rgba(41, 41, 41, 0.75);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 23, 89, 0.65);
+    text-align: center;
+}
+
+/* Контент внутри футера */
+.footer-content {
+    max-width: 600px; /* Ограничиваем ширину */
+    margin: 0 auto; /* Центрируем */
+}
+
+/* Стили для списка контактов */
+.contact-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin-bottom: 10px; /* Отступ между пунктами */
+    font-size: 16px;
+    color: #b8b8b8;
+}
+
+.contact-list a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #0077cc; /* Цвет ссылок */
+}
+
+.contact-list a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

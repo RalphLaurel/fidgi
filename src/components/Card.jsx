@@ -15,3 +15,5 @@ const Card = ({ image, title, description, onClick }) => {
 };
 
 export default Card;
+
+//*Будет использоваться для показа выбора компонентов*//

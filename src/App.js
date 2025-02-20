@@ -1,77 +1,64 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Card from './components/Card';
-import WebMessenger from "./components/WebMSG";
-import Portfolio from './components/Portfolio';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ApplicationsLayout from './components/application/ApplicationsLayout';
 import './App.css';
-import WebStore from "./components/WebSTR"
-
+import backgroundImage from './components/background.jpg'
+import Slider from 'react-slick';
+/*import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';*/
 
 function App() {
-    const cardsData = [
-        {
-            id: 1,
-            image: "https://avatars.mds.yandex.net/i?id=8213ecd5c1a38e6678f2a1c0be9cff79_l-4303091-images-thumbs&n=13",
-            title: "Магаз",
-            description: "пися",
-            path: "/web-store"
-        },
-        {
-            id: 2,
-            image: "https://i.pinimg.com/originals/c9/e4/b3/c9e4b3822cb96cab091698094d020cd7.jpg",
-            title: "Мессенджер",
-            description: "Проект мессенджера (лента новостей)",
-            path: "/web-development"
-        },
-        {
-            id: 3,
-            image: "https://images.wallpaperscraft.com/image/single/circles_lines_background_43438_3200x2400.jpg",
-            title: "Портфолио",
-            description: "Проект портфолио/визитки",
-            path: "/mobile-apps"
-        }
-    ];
-
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<Home cardsData={cardsData} />} />
-                <Route path="/web-store" element={<WebStore />} />
-                <Route path="/web-development" element={<WebMessenger />} />
-                <Route path="/mobile-apps" element={<Portfolio />} />
-            </Routes>
+            <div className="app-container">
+                {/* Навигационная панель */}
+                <Navbar />
+
+                {/* Основное содержимое */}
+                <main>
+                    <Routes>
+                        {/* Домашняя страница */}
+                        <Route
+                            path="/"
+                            element={
+                                <div
+                                    className="home-page"
+                                    style={{
+                                        backgroundImage: `url(${backgroundImage})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        minHeight: 'calc(100vh - 120px)',
+                                        padding: '2rem',
+                                        color: 'white',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
+                                >
+                                    {/* Контейнер для текста */}
+                                    <div className="text-container">
+                                        <h1>Добро пожаловать на главную страницу</h1>
+                                        <p>Используйте навигационную панель для перехода к приложениям.</p>
+                                    </div>
+
+                                </div>
+                            }
+                        />
+
+
+                        {/* Страница приложений */}
+                        <Route path="/application/*" element={<ApplicationsLayout/>}/>
+                    </Routes>
+                </main>
+
+                {/* Футер */}
+                <Footer/>
+            </div>
         </Router>
     );
 }
-
-const Home = ({ cardsData, BackGroundImage }) => {
-    const navigate = useNavigate();
-
-
-    return (
-        <>
-            <div className="container">
-                {cardsData.map((card) => (
-                    <Card
-                        key={card.id}
-                        image={card.image}
-                        title={card.title}
-                        description={card.description}
-                        onClick={() => navigate(card.path)}
-                    />
-                ))}
-            </div>
-            <footer className="footer">
-                <div className="footer-content">
-                    <ul className="contact-list">
-                        <li>Telegram: <a href="https://t.me/RalphLaurel">@RalphLaurel</a></li>
-                        <li>Почта: <a href="mailto:snokyje@gmail.com">snokyje@gmail.com</a></li>
-                        <li>Номер: +7 (922) 667-03-05</li>
-                    </ul>
-                </div>
-            </footer>
-        </>
-    );
-};
 
 export default App;

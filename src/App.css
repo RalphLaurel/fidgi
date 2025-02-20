@@ -1,69 +1,90 @@
-.container {
-  background-image: url('components/background.jpg');
-  background-size: cover;
-  background-position: center;
-
-  min-height: 100vh;
+.app-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.home-page {
+  position: relative;
+  overflow: hidden; /* Чтобы слайдер не выходил за пределы */
+}
+
+/* Стили для текстового контейнера */
+.text-container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для читаемости текста */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.text-container h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.text-container p {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
+}
+
+/* Стили для слайдера */
+.slider-container {
+  width: 80%;
+  max-width: 800px;
   padding: 20px;
 }
-.content {
+
+.slider-container .slide {
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8); /* Легкий фон для слайдов */
+  border-radius: 10px;
+  color: black;
+  height: 200px; /* Фиксированная высота слайдов */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.content button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.content button:hover {
-  background-color: #0056b3;
-}
-
-.footer {
-  padding: 20px 0;
-  background: rgba(0,0,0,0.5);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0,0,0,0.25);
-  text-align: center;
-}
-
-/* Контент внутри футера */
-.footer-content {
-  max-width: 600px; /* Ограничиваем ширину */
-  margin: 0 auto; /* Центрируем */
-}
-
-/* Стили для списка контактов */
-.contact-list {
-  list-style-type: none; /* Убираем маркеры списка */
-  padding: 0;
+.slider-container .slide h3 {
   margin: 0;
+  font-size: 1.8rem;
 }
 
-.contact-list li {
-  margin-bottom: 10px; /* Отступ между пунктами */
-  font-size: 16px;
-  color: #555;
+.slider-container .slide p {
+  margin: 10px 0 0;
+  font-size: 1rem;
 }
 
-.contact-list a {
-  text-decoration: none; /* Убираем подчеркивание у ссылок */
-  color: #0077cc; /* Цвет ссылок */
-}
+/* Адаптивность */
+@media (max-width: 768px) {
+  .text-container h1 {
+    font-size: 1.8rem;
+  }
 
-.contact-list a:hover {
-  text-decoration: underline; /* Подчеркивание при наведении */
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .slider-container {
+    width: 100%;
+  }
+
+  .slider-container .slide {
+    height: 150px; /* Уменьшаем высоту на мобильных */
+  }
+
+  .slider-container .slide h3 {
+    font-size: 1.5rem;
+  }
+
+  .slider-container .slide p {
+    font-size: 0.9rem;
+  }
 }
