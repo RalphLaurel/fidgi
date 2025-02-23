@@ -1,0 +1,50 @@
+.sliderapp {
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slider-contentapp {
+    text-align: center;
+    z-index: 1;
+}
+
+.slider-prevapp,
+.slider-nextapp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0; /* Убираем padding, так как размер теперь фиксированный */
+    background: rgba(142, 142, 142, 0.42);
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Полный круг */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+}
+
+.slider-prevapp {
+    left: 20px;
+
+}
+
+.slider-nextapp {
+    right: 20px; /* Добавляем позицию для правой кнопки */
+}
+
+
